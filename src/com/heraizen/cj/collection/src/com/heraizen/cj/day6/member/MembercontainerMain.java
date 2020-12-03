@@ -64,23 +64,24 @@ break;
 	}
 
 	private static int getchoice() {
-		Scanner sc = new Scanner(System.in);
-		
-		
-		
 		int n=0;
+		Scanner sc = new Scanner(System.in);
 		try {
-			 n = sc.nextInt();
-			 
-		}
-		catch(Exception e)
+		 n = sc.nextInt();
+		if(n>6 || n<0)
 		{
-		System.out.println("pls Enter correct one");
-		n=0;
+			n=0;
+			throw new CommonExecption("Please enter valid Number should be less than 6.");
 		}
-		
-		
-		
+		}
+		catch(CommonExecption ce)
+		{
+			
+		}
+		catch(Exception e){
+			System.out.println("Please enter valid Number.");
+		n=0;	
+		}
 		return n;
 	}
 

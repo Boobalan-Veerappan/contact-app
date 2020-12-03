@@ -12,7 +12,7 @@ public class StateDiary {
 		while(m == 1)
 		{
 			System.out.println("1-Enter New State 2-view Captial 3-Exist");
-			n = sc.nextInt();
+			n = getchoice();
 			switch(n)
 			{
 			case 1:{
@@ -36,5 +36,21 @@ public class StateDiary {
 			}
 		}
 	}
-
+public static int getchoice()
+{
+	
+	Scanner sc = new Scanner(System.in);
+	
+	int n=0;
+	try {
+		
+		n = sc.nextInt();
+		
+	}catch(Exception e)
+	{
+		System.out.println("Please Enter the valid NUmber");
+	}
+	
+	return n;
+}
 }

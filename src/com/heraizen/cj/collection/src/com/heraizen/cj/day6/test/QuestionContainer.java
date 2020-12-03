@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.heraizen.cj.day6.commonexception.CommonExecption;
+
 public class QuestionContainer {
 	Scanner sc = new Scanner(System.in);
 int crct;
@@ -33,7 +35,18 @@ int wrong;
 			System.out.printf("A) %-15s   C) %-15s\n",q.option1,q.option3);
 			System.out.printf("B) %-15s   D) %-15s\n",q.option2,q.option4);
 			System.out.println();
-			String a = sc.nextLine();
+			String a = choose();
+//			try {
+//			if(!(a.equalsIgnoreCase("A")||a.equalsIgnoreCase("B")||a.equalsIgnoreCase("C")||a.equalsIgnoreCase("D")))
+//			{
+//				throw new CommonExecption("Please Choose valid option");
+//			}
+//			}
+//			catch(CommonExecption e)
+//			{
+//				
+//			}
+			
 		if(a.equalsIgnoreCase(q.answer))
 		{
 			crct++;
@@ -44,12 +57,31 @@ int wrong;
 		}
 		});
 	}
+	
+	String choose()
+	{
+		int n = 0;
+		String a = sc.next();
+		try {
+			if(!(a.equalsIgnoreCase("A")||a.equalsIgnoreCase("B")||a.equalsIgnoreCase("C")||a.equalsIgnoreCase("D")))
+			{
+				throw new CommonExecption("Please Choose valid option");
+			}
+			}
+			catch(CommonExecption e)
+			{
+				a = choose();
+			}
+		
+		return a;
+	}
+	
 	void showresult()
 	{
-		System.out.printf("Total Question %d : \n ",list.size());
-		System.out.printf("Correct %d : \n ",crct);
-		System.out.printf("Wrong %d : \n ",wrong);
+		System.out.printf("Total Question : %d  \n ",list.size());
+		System.out.printf("Correct : %d  \n ",crct);
+		System.out.printf("Wrong : %d  \n ",wrong);
 		
-		System.out.printf("Resulr %s : \n ",(crct*100/list.size())>40?"Pass":"Fail");
+		System.out.printf("Result : %s \n ",(crct*100/list.size())>40?"Pass":"Fail");
 	}
 }

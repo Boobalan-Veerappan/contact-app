@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StudentStorage {
+	int k=0;
 	static Map<Integer, Student> arrayMap = new HashMap<Integer, Student>();
 	
 	void add_student(Student s)
@@ -24,10 +25,15 @@ public class StudentStorage {
 		arrayMap.forEach((j,s)->{
 			if(i==j)
 			{
-				System.out.println("The student is "+s.Name+" "+s.Degree+s.email);
+			k=1;
+				System.out.println("The student is Name "+s.Name+" Courses "+s.Degree+" EMail "+s.email);
 				
 			}
 		});
+		if(k==0)
+		{
+			System.out.println("Student not found for this Key "+i);
+		}
 	}
 	@Override
 	public String toString() {

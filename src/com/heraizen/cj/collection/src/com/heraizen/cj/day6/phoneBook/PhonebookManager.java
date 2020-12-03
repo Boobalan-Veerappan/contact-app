@@ -2,6 +2,8 @@ package com.heraizen.cj.day6.phoneBook;
 
 import java.util.Scanner;
 
+import com.heraizen.cj.day6.commonexception.CommonExecption;
+
 public class PhonebookManager {
 
 	public static void main(String[] args) {
@@ -12,7 +14,7 @@ public class PhonebookManager {
 		{
 			
 			System.out.println(" 1)Add new Phone number 2)search Phone Number 3)Quit");
-			int i = sc.nextInt();
+			int i = getchoice();
 			switch(i)
 			{
 			case 1:{
@@ -39,5 +41,25 @@ public class PhonebookManager {
 		}
 
 	}
-
+	private static int getchoice() {
+		int n=0;
+		Scanner sc = new Scanner(System.in);
+		try {
+		 n = sc.nextInt();
+		if(n>6 || n<0)
+		{
+			n=0;
+			throw new CommonExecption("Please enter valid Number should be less than 6.");
+		}
+		}
+		catch(CommonExecption ce)
+		{
+			
+		}
+		catch(Exception e){
+			System.out.println("Please enter valid Number.");
+		n=0;	
+		}
+		return n;
+	}
 }

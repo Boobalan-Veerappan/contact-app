@@ -6,6 +6,7 @@ public class GetSystem {
 
 		System.out.println(System.getProperty("java.class.path"));
 		System.out.println(System.getProperty("os.name"));
+		 System.out.println(System.getProperty("java.vm.name"));
 	}
 
 }

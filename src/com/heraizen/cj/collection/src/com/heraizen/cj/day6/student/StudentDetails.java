@@ -25,12 +25,27 @@ public class StudentDetails {
 			i++;
 		} 
 		ss.viewStudent();
-System.out.println("ENter String for find");
-int  find = sc.nextInt();
+System.out.println("ENter Key for find");
+int  find = find_Key();
 ss.viewStudent(find);
 	}
 
 	
-
+public static int find_Key()
+{
+	int n = 0;
+	Scanner sc  = new Scanner(System.in);
+	try {
+		
+		n = sc.nextInt();
+		
+	}catch(Exception e)
+	{
+		System.out.println("Please Enter the Valid String");
+		n = find_Key();
+	}
+	
+	return n;
+}
 	
 }
